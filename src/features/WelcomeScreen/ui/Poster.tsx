@@ -17,8 +17,8 @@ export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
   const handleShare = useCallback(async () => {
     const posterUrl =
       typeof window !== "undefined"
-        ? `${window.location.origin}/poster/${id}/`
-        : `https://gelato-di-tartufoo.pages.dev/poster/${id}/`;
+        ? `${window.location.origin}/poster/${id}`
+        : `https://gelato-di-tartufoo.vercel.app/poster/${id}`;
 
     const shareData = {
       title: title,

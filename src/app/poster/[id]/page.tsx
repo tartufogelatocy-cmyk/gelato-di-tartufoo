@@ -7,7 +7,7 @@ interface PosterPageProps {
   params: { id: string };
 }
 
-const baseUrl = "https://gelato-di-tartufoo.pages.dev";
+const baseUrl = "https://gelato-di-tartufoo.vercel.app";
 
 export const runtime = "edge";
 export const dynamic = "force-dynamic";
