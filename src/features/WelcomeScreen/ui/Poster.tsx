@@ -20,8 +20,8 @@ export const Poster = ({ title, image, resetPoster }: PosterProps) => {
 
     const shareData = {
       title: title,
-      text: `Check out this movie: ${title}`,
-      // url: posterUrl,
+      text: `I rolled the roulette and got: ${title}`,
+      url: posterUrl,
     } as ShareData;
 
     if (navigator.share) {
