@@ -96,7 +96,7 @@ export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
           transition={{ duration: 0.4, delay: 0.2 }}
         >
           <Image
-            src={encodeURI(image)}
+            src={image}
             alt="Poster"
             fill
             unoptimized
