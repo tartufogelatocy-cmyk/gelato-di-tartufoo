@@ -2,7 +2,9 @@ import { Metadata } from "next";
 import { movies } from "@/constants/movies";
 import RedirectHome from "../RedirectHome";
 
-// export const dynamic = "force-dynamic";
+export async function generateStaticParams() {
+  return movies.map((m) => ({ id: m.id.toString() }));
+}
 
 interface PosterPageProps {
   params: { id: string };
