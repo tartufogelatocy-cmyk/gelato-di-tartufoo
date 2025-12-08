@@ -1,66 +1,56 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { WelcomeScreen } from "@/features/WelcomeScreen/WelcomeScreen";
+import { OrganizationStructuredData } from "@/seo/OrganizationStructuredData";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = "https://tartufo-gelato.cy";
+
+  const title =
+    "Gelato di Tartufo – Movie Night Roulette & Gelateria in Limassol";
+  const description =
+    "Spin the movie roulette, grab your Gelato di Tartufo, and enjoy the coziest night in Limassol. Hand-crafted Italian gelato meets curated film recommendations for a perfect evening.";
+  const imageUrl = `${baseUrl}/preview.png`;
+
+  return {
+    title,
+    description,
+    keywords:
+      "Gelato di Tartufo, gelato Limassol, Italian ice-cream Cyprus, movie roulette, dessert and movie night",
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      siteName: "Gelato di Tartufo",
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Gelato di Tartufo preview image",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: baseUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <WelcomeScreen />
+      <OrganizationStructuredData />
+    </>
   );
 }
