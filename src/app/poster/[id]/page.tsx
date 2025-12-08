@@ -9,9 +9,6 @@ interface PosterPageProps {
 
 const baseUrl = "https://gelato-di-tartufoo.vercel.app";
 
-export const runtime = "edge";
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata({
   params,
 }: PosterPageProps): Promise<Metadata> {
