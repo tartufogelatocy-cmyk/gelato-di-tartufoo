@@ -8,7 +8,7 @@ interface PosterPageProps {
   params: { id: string };
 }
 
-const baseUrl = "https://gelato-di-tartufoo.vercel.app";
+const baseUrl = "https://gelato-di-tartufo.vercel.app";
 
 export async function generateMetadata({
   params,
