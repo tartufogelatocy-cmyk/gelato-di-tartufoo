@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import { movies } from "@/constants/movies";
-import { notFound } from "next/navigation";
 import RedirectHome from "../RedirectHome";
+
+export const dynamic = "force-dynamic";
 
 interface PosterPageProps {
   params: { id: string };
@@ -54,10 +55,6 @@ export async function generateMetadata({
 export default function PosterPage({ params }: PosterPageProps) {
   const movie = movies.find((m) => m.id === Number(params.id));
   console.log("[poster] page render params:", params.id, "movie:", movie?.name);
-
-  if (!movie) {
-    notFound();
-  }
 
   return <RedirectHome />;
 }
