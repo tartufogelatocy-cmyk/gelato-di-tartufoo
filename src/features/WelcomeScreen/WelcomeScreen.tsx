@@ -16,20 +16,44 @@ export const WelcomeScreen = () => {
 
   return (
     <div className={styles.welcomeScreen}>
-      <div className={styles.logoContainer}>
+      {/* Logo fade-in animation */}
+      <motion.div
+        className={styles.logoContainer}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+      >
         <Image src={LogoImage} alt="Logo" width={95} height={89} />
-      </div>
+      </motion.div>
 
       <div className={styles.titleContainer}>
-        <h1 className={styles.title}>Hey, sweety!</h1>
-        <p className={styles.description}>
+        <motion.h1
+          className={styles.title}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Hey, sweety!
+        </motion.h1>
+
+        <motion.p
+          className={styles.description}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
           You’re all set for the coziest night: blanket ready, movie loading,
           and a gelateria gift to make it extra special.
-        </p>
+        </motion.p>
       </div>
 
       <div className={styles.filmStockContainer}>
-        <div className={styles.filmStock} />
+        <motion.div
+          className={styles.filmStock}
+          initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+          animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        />
       </div>
 
       <p className={styles.actionText}>
@@ -47,6 +71,7 @@ export const WelcomeScreen = () => {
             transition={{ duration: 0.3 }}
           >
             <Poster
+              id={poster.id}
               title={poster.name}
               image={poster.path}
               resetPoster={() => setPoster(null)}

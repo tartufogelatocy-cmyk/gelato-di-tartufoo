@@ -3,20 +3,22 @@ import InstagramIcon from "@/features/WelcomeScreen/assets/icons/inst.svg";
 import ShareIcon from "@/features/WelcomeScreen/assets/icons/copy.svg";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { useCallback } from "react";
 
 interface PosterProps {
+  id: number;
   title: string;
   image: string;
   resetPoster: () => void;
 }
 
-export const Poster = ({ title, image, resetPoster }: PosterProps) => {
+export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
   const handleShare = useCallback(async () => {
     const posterUrl =
       typeof window !== "undefined"
-        ? `${window.location.origin}${image}`
-        : image;
+        ? `${window.location.origin}/poster/${id}`
+        : `https://gelato-di-tartufoo.pages.dev/poster/${id}`;
 
     const shareData = {
       title: title,
@@ -47,7 +49,7 @@ export const Poster = ({ title, image, resetPoster }: PosterProps) => {
         console.error("Copy failed", err);
       }
     }
-  }, [title, image]);
+  }, [id, title]);
 
   return (
     <div className={styles.poster}>
@@ -55,7 +57,12 @@ export const Poster = ({ title, image, resetPoster }: PosterProps) => {
 
       <h3 className={styles.posterTitle}>{title}</h3>
 
-      <div className={styles.posterImage}>
+      <motion.div
+        className={styles.posterImage}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
         <Image
           src={encodeURI(image)}
           alt="Poster"
@@ -63,7 +70,7 @@ export const Poster = ({ title, image, resetPoster }: PosterProps) => {
           unoptimized
           style={{ objectFit: "contain" }}
         />
-      </div>
+      </motion.div>
 
       <div className={styles.shareContainer}>
         <div className={styles.shareItem}>
