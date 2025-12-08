@@ -10,6 +10,8 @@ interface PosterPageProps {
 const baseUrl = "https://gelato-di-tartufoo.pages.dev";
 
 export const dynamicParams = false;
+export const prerender = true;
+export const dynamic = "force-static";
 
 export function generateStaticParams() {
   return movies.map((m) => ({ id: m.id.toString() }));
