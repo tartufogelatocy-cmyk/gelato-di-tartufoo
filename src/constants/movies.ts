@@ -6,7 +6,7 @@ export const movies: Movie[] = [
   {
     id: 3,
     name: "How the Grinch Stole Christmas",
-    path: "/CINEMAPOSTER/3.HowtheGrinchStole%20Christmas.webp",
+    path: "/CINEMAPOSTER/3.HowtheGrinchStoleChristmas.webp",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const movies: Movie[] = [
   {
     id: 14,
     name: "Bridget Jones’s Diary",
-    path: "/CINEMAPOSTER/14.BridgetJoness%20Diary.jpg",
+    path: "/CINEMAPOSTER/14.BridgetJonessDiary.jpg",
   },
   {
     id: 15,
@@ -101,7 +101,7 @@ export const movies: Movie[] = [
   {
     id: 27,
     name: "La cena di Natale",
-    path: "/CINEMAPOSTER/27.%20LacenadiNatale.jpeg",
+    path: "/CINEMAPOSTER/27.LacenadiNatale.jpeg",
   },
   {
     id: 28,
