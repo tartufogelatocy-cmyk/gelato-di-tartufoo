@@ -3,7 +3,7 @@ import Script from "next/script";
 
 export async function OrganizationStructuredData() {
   const nonce = await getCSPNonce();
-  //seo
+
   const baseUrl = "https://tartufo-gelato.cy";
 
   const structuredData = {
