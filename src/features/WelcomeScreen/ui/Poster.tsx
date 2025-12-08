@@ -18,7 +18,7 @@ export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
     const posterUrl =
       typeof window !== "undefined"
         ? `${window.location.origin}/poster/${id}`
-        : `https://gelato-di-tartufoo.vercel.app/poster/${id}`;
+        : `https://gelato-di-tartufoo.pages.dev/poster/${id}`;
 
     const shareData = {
       title: title,

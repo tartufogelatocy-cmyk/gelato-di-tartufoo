@@ -3,7 +3,7 @@ import { OrganizationStructuredData } from "@/seo/OrganizationStructuredData";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = "https://gelato-di-tartufoo.vercel.app";
+  const baseUrl = "https://gelato-di-tartufoo.pages.dev";
 
   const title =
     "Gelato di Tartufo – Movie Night Roulette & Gelateria in Limassol";

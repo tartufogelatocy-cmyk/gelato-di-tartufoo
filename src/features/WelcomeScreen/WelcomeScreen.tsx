@@ -16,7 +16,6 @@ export const WelcomeScreen = () => {
 
   return (
     <div className={styles.welcomeScreen}>
-      {/* Logo fade-in animation */}
       <motion.div
         className={styles.logoContainer}
         initial={{ opacity: 0 }}
