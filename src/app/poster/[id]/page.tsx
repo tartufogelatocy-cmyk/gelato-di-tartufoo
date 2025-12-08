@@ -2,13 +2,13 @@ import { Metadata } from "next";
 import { movies } from "@/constants/movies";
 import RedirectHome from "../RedirectHome";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 interface PosterPageProps {
   params: { id: string };
 }
 
-const baseUrl = "https://gelato-di-tartufo.vercel.app";
+const baseUrl = "https://gelato-di-tartufoo.vercel.app";
 
 export async function generateMetadata({
   params,
