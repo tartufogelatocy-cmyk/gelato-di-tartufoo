@@ -58,5 +58,5 @@ export default function PosterPage({ params }: PosterPageProps) {
   const movie = movies.find((m) => m.id === Number(params.id));
   console.log("[poster] page render params:", params.id, "movie:", movie?.name);
 
-  return <RedirectHome />;
+  return <RedirectHome id={params.id} />;
 }
