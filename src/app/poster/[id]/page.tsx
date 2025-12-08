@@ -9,7 +9,11 @@ interface PosterPageProps {
 
 const baseUrl = "https://gelato-di-tartufoo.pages.dev";
 
-export const runtime = "edge";
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return movies.map((m) => ({ id: m.id.toString() }));
+}
 
 export async function generateMetadata({
   params,
