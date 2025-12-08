@@ -11,3 +11,5 @@ export default function RedirectHome() {
 
   return null;
 }
+
+export const runtime = "edge";

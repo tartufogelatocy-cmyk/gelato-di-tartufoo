@@ -9,6 +9,8 @@ interface PosterPageProps {
 
 const baseUrl = "https://gelato-di-tartufoo.pages.dev";
 
+export const runtime = "edge";
+
 export async function generateMetadata({
   params,
 }: PosterPageProps): Promise<Metadata> {
