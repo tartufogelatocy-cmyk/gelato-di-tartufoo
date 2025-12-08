@@ -1,10 +1,12 @@
+"use client";
 import styles from "@/features/WelcomeScreen/styles/poster.module.scss";
-import InstagramIcon from "@/features/WelcomeScreen/assets/icons/inst.svg";
-import ShareIcon from "@/features/WelcomeScreen/assets/icons/copy.svg";
+// import InstagramIcon from "@/features/WelcomeScreen/assets/icons/inst.svg";
+import CopyURLIcon from "@/features/WelcomeScreen/assets/icons/copy.svg";
+import UploadIcon from "@/features/WelcomeScreen/assets/icons/upload.svg";
 import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+import { CopiedModal } from "./CopiedModal";
 
 interface PosterProps {
   id: number;
@@ -14,94 +16,129 @@ interface PosterProps {
 }
 
 export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => setCopied(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [copied]);
+
+  // Copy to clipboard
+  const copyToClipboard = useCallback(async (text: string) => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const tmp = document.createElement("input");
+        tmp.value = text;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        document.body.removeChild(tmp);
+      }
+      setCopied(true);
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
+  }, []);
+
+  // Share to social media
   const handleShare = useCallback(async () => {
     const posterUrl =
       typeof window !== "undefined"
         ? `${window.location.origin}/poster/${id}`
         : `https://gelato-di-tartufoo.pages.dev/poster/${id}`;
 
-    const shareData = {
-      title: title,
+    const shareData: ShareData = {
+      title,
       text: `I rolled the roulette and got: ${title}`,
       url: posterUrl,
-    } as ShareData;
+    };
 
-    if (navigator.share) {
+    const nav = navigator as Navigator & {
+      canShare?: (data?: ShareData) => boolean;
+    };
+
+    if (nav.share && nav.canShare?.(shareData)) {
       try {
-        await navigator.share(shareData);
+        await nav.share(shareData);
       } catch (err) {
         console.log("Share cancelled", err);
       }
     } else {
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(posterUrl);
-        } else {
-          const tmp = document.createElement("input");
-          tmp.value = posterUrl;
-          document.body.appendChild(tmp);
-          tmp.select();
-          document.execCommand("copy");
-          document.body.removeChild(tmp);
-        }
-        alert("Link copied to clipboard");
-      } catch (err) {
-        console.error("Copy failed", err);
-      }
+      copyToClipboard(posterUrl);
     }
-  }, [id, title]);
+  }, [id, title, copyToClipboard]);
+
+  // Copy to clipboard
+  const handleCopy = useCallback(async () => {
+    const homeUrl =
+      typeof window !== "undefined"
+        ? window.location.origin
+        : "https://gelato-di-tartufoo.pages.dev";
+
+    await copyToClipboard(homeUrl);
+  }, [copyToClipboard]);
 
   return (
-    <div className={styles.poster}>
-      <div className={styles.posterOverlay} />
+    <>
+      <div className={styles.poster}>
+        <div className={styles.posterOverlay} />
 
-      <h3 className={styles.posterTitle}>{title}</h3>
+        <h3 className={styles.posterTitle}>{title}</h3>
 
-      <motion.div
-        className={styles.posterImage}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-      >
-        <Image
-          src={encodeURI(image)}
-          alt="Poster"
-          fill
-          unoptimized
-          style={{ objectFit: "contain" }}
-        />
-      </motion.div>
+        <motion.div
+          className={styles.posterImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <Image
+            src={encodeURI(image)}
+            alt="Poster"
+            fill
+            unoptimized
+            style={{ objectFit: "contain" }}
+          />
+        </motion.div>
 
-      <div className={styles.shareContainer}>
-        <div className={styles.shareItem}>
-          <p className={styles.shareItemText}>Share:</p>
-          <div className={styles.shareItemIcons}>
-            <Link
-              href="https://www.instagram.com/tartufo_gelato/"
-              target="_blank"
-              className={styles.icon}
-            >
-              <Image
-                src={InstagramIcon}
-                alt="Instagram"
-                width={19}
-                height={19}
-              />
-            </Link>
+        <div className={styles.shareContainer}>
+          <div className={styles.shareItem}>
+            <p className={styles.shareItemText}>Share:</p>
+            <div className={styles.shareItemIcons}>
+              <button
+                className={styles.icon}
+                onClick={handleCopy}
+                type="button"
+              >
+                <Image
+                  src={CopyURLIcon}
+                  alt="Copy URL"
+                  width={19}
+                  height={19}
+                />
+              </button>
 
-            <button
-              className={`${styles.icon} ${styles.shareIcon}`}
-              onClick={handleShare}
-            >
-              <Image src={ShareIcon} alt="Share Icon" width={19} height={19} />
-            </button>
+              <button className={styles.icon} onClick={handleShare}>
+                <Image
+                  src={UploadIcon}
+                  alt="Upload Icon"
+                  width={19}
+                  height={19}
+                />
+              </button>
+            </div>
           </div>
-        </div>
 
-        <button className={styles.spinAgainButton} onClick={resetPoster}>
-          Spin Again
-        </button>
+          <button className={styles.spinAgainButton} onClick={resetPoster}>
+            Spin Again
+          </button>
+        </div>
       </div>
-    </div>
+
+      <AnimatePresence>{copied && <CopiedModal />}</AnimatePresence>
+    </>
   );
 };
