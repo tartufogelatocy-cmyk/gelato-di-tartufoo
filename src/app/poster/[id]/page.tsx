@@ -12,7 +12,9 @@ const baseUrl = "https://gelato-di-tartufoo.vercel.app";
 export async function generateMetadata({
   params,
 }: PosterPageProps): Promise<Metadata> {
+  console.log("[poster] generateMetadata params:", params.id);
   const movie = movies.find((m) => m.id === Number(params.id));
+  console.log("[poster] movie found:", movie?.name);
 
   if (!movie) {
     return {};
@@ -51,6 +53,7 @@ export async function generateMetadata({
 
 export default function PosterPage({ params }: PosterPageProps) {
   const movie = movies.find((m) => m.id === Number(params.id));
+  console.log("[poster] page render params:", params.id, "movie:", movie?.name);
 
   if (!movie) {
     notFound();
