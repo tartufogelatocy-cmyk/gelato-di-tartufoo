@@ -7,7 +7,7 @@ export async function generateStaticParams() {
 }
 
 interface PosterPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const baseUrl = "https://gelato-di-tartufoo.vercel.app";
@@ -15,8 +15,9 @@ const baseUrl = "https://gelato-di-tartufoo.vercel.app";
 export async function generateMetadata({
   params,
 }: PosterPageProps): Promise<Metadata> {
-  console.log("[poster] generateMetadata params:", params.id);
-  const movie = movies.find((m) => m.id === Number(params.id));
+  const { id } = await params;
+  console.log("[poster] generateMetadata params:", id);
+  const movie = movies.find((m) => m.id === Number(id));
   console.log("[poster] movie found:", movie?.name);
 
   if (!movie) {
@@ -54,9 +55,6 @@ export async function generateMetadata({
   };
 }
 
-export default function PosterPage({ params }: PosterPageProps) {
-  const movie = movies.find((m) => m.id === Number(params.id));
-  console.log("[poster] page render params:", params.id, "movie:", movie?.name);
-
-  return <RedirectHome id={params.id} />;
+export default function PosterPage() {
+  return <RedirectHome />;
 }
