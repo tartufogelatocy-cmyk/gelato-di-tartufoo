@@ -16,34 +16,34 @@ export const WelcomeScreen = () => {
 
   return (
     <div className={styles.welcomeScreen}>
-      <motion.div
+      <div
         className={styles.logoContainer}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4 }}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // transition={{ duration: 0.4 }}
       >
         <Image src={LogoImage} alt="Logo" width={95} height={89} />
-      </motion.div>
+      </div>
 
       <div className={styles.titleContainer}>
-        <motion.h1
+        <h1
           className={styles.title}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          // initial={{ opacity: 0, y: 10 }}
+          // animate={{ opacity: 1, y: 0 }}
+          // transition={{ duration: 0.5, delay: 0.2 }}
         >
           Hey, sweety!
-        </motion.h1>
+        </h1>
 
-        <motion.p
+        <p
           className={styles.description}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          // initial={{ opacity: 0, y: 10 }}
+          // animate={{ opacity: 1, y: 0 }}
+          // transition={{ duration: 0.5, delay: 0.5 }}
         >
           You’re all set for the coziest night: blanket ready, movie loading,
           and a gelateria gift to make it extra special.
-        </motion.p>
+        </p>
       </div>
 
       <div className={styles.filmStockContainer}>
@@ -132,7 +132,7 @@ export const WelcomeScreen = () => {
           <p className={styles.contactItemText}>tartufo_gelato</p>
         </Link>
 
-        <Link href="tel:94334440" className={styles.contactItem}>
+        <Link href="tel:+35794334440" className={styles.contactItem}>
           <Image src={PhoneIcon} alt="Phone" width={25} height={25} />
           <p className={styles.contactItemText}>94 334440</p>
         </Link>

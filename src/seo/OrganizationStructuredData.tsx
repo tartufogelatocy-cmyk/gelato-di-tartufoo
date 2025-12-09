@@ -19,11 +19,11 @@ export async function OrganizationStructuredData() {
       width: 120,
       height: 120,
     },
-    telephone: "+357 94 334440",
+    telephone: "+35794334440",
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      telephone: "+357 94 334440",
+      telephone: "+35794334440",
       availableLanguage: ["English"],
     },
     sameAs: ["https://www.instagram.com/tartufo_gelato/"],
