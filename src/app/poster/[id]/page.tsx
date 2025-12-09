@@ -10,6 +10,8 @@ interface PosterPageProps {
   params: Promise<{ id: string }>;
 }
 
+const baseUrl = "https://gelato-di-tartufoo.pages.dev";
+
 export async function generateMetadata({
   params,
 }: PosterPageProps): Promise<Metadata> {
@@ -22,8 +24,8 @@ export async function generateMetadata({
     return {};
   }
 
-  const absoluteImageUrl = `${movie.path}`;
-  const pageUrl = `${movie.id}`;
+  const absoluteImageUrl = `${baseUrl}${movie.path}`;
+  const pageUrl = `${baseUrl}/poster/${movie.id}`;
 
   return {
     title: `${movie.name} – Movie Roulette | Gelato di Tartufo`,
