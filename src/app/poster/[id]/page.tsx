@@ -10,8 +10,7 @@ interface PosterPageProps {
   params: Promise<{ id: string }>;
 }
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://gelato-di-tartufoo.pages.dev";
+const baseUrl = "https://gelato-di-tartufoo.pages.dev";
 
 export async function generateMetadata({
   params,
