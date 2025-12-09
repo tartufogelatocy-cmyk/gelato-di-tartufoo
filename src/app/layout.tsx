@@ -1,5 +1,7 @@
 import "@/styles/global.scss";
 
+export const metadataBase = new URL("https://gelato-di-tartufoo.pages.dev");
+
 export const metadata = {
   icons: {
     // Standard favicons

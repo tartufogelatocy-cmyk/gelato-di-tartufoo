@@ -3,13 +3,11 @@ import { OrganizationStructuredData } from "@/seo/OrganizationStructuredData";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = "https://gelato-di-tartufoo.pages.dev";
-
   const title =
     "Gelato di Tartufo – Movie Night Roulette & Gelateria in Limassol";
   const description =
     "Spin the movie roulette, grab your Gelato di Tartufo, and enjoy the coziest night in Limassol. Hand-crafted Italian gelato meets curated film recommendations for a perfect evening.";
-  const imageUrl = `${baseUrl}/preview.png`;
+  const imageUrl = "/preview.png";
 
   return {
     title,
@@ -37,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [imageUrl],
     },
     alternates: {
-      canonical: baseUrl,
+      canonical: "/",
     },
     robots: {
       index: true,
