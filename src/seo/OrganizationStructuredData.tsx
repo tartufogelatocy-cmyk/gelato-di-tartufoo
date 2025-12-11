@@ -4,7 +4,7 @@ import Script from "next/script";
 export async function OrganizationStructuredData() {
   const nonce = await getCSPNonce();
 
-  const baseUrl = "https://gelato-di-tartufoo.pages.dev";
+  const baseUrl = "https://tartufo-gelato.com";
 
   const structuredData = {
     "@context": "https://schema.org",
