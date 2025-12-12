@@ -48,8 +48,8 @@ export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
   const handleShare = useCallback(async () => {
     const posterUrl =
       typeof window !== "undefined"
-        ? `${window.location.origin}/poster/${id}`
-        : `https://tartufo-gelato.com/poster/${id}`;
+        ? `${window.location.origin}/roulette/poster/${id}`
+        : `https://tartufo-gelato.com/roulette/poster/${id}`;
 
     const shareData: ShareData = {
       title,
@@ -77,7 +77,7 @@ export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
     const homeUrl =
       typeof window !== "undefined"
         ? window.location.origin
-        : "https://tartufo-gelato.com";
+        : "https://tartufo-gelato.com/roulette";
 
     await copyToClipboard(homeUrl);
   }, [copyToClipboard]);

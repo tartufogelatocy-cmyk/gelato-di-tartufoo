@@ -6,7 +6,7 @@ export default function RedirectHome() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/");
+    router.replace("/roulette");
   }, [router]);
 
   return null;

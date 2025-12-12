@@ -1,5 +1,6 @@
+import { WelcomeScreen } from "@/features/WelcomeScreen/WelcomeScreen";
+import { OrganizationStructuredData } from "@/seo/OrganizationStructuredData";
 import { Metadata } from "next";
-import { redirect } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = "https://tartufo-gelato.com";
@@ -45,6 +46,11 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
-  redirect("/roulette");
+export default function Roulette() {
+  return (
+    <>
+      <WelcomeScreen />
+      <OrganizationStructuredData />
+    </>
+  );
 }

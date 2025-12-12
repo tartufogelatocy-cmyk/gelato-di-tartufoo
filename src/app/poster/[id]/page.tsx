@@ -25,7 +25,7 @@ export async function generateMetadata({
   }
 
   const absoluteImageUrl = `${baseUrl}${movie.path}`;
-  const pageUrl = `${baseUrl}/poster/${movie.id}`;
+  const pageUrl = `${baseUrl}/roulette/poster/${movie.id}`;
 
   return {
     title: `${movie.name} – Movie Roulette | Gelato di Tartufo`,
