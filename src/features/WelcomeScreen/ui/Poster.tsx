@@ -74,12 +74,8 @@ export const Poster = ({ id, title, image, resetPoster }: PosterProps) => {
 
   // Copy to clipboard
   const handleCopy = useCallback(async () => {
-    const homeUrl =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : "https://tartufo-gelato.com/roulette";
-
-    await copyToClipboard(homeUrl);
+    const rouletteUrl = "https://tartufo-gelato.com/roulette";
+    await copyToClipboard(rouletteUrl);
   }, [copyToClipboard]);
 
   return (
