@@ -3,7 +3,7 @@ import BracerIcon from "@/features/MainPage/assets/icons/braces.svg";
 import Image from "next/image";
 import LogoImage from "@/assets/images/logolightpng.png";
 
-export const WelcomeSection = () => {
+export const Welcome = () => {
   return (
     <section className={styles.welcomeSection}>
       <div className={styles.leftSide}>
@@ -15,7 +15,7 @@ export const WelcomeSection = () => {
           disablePictureInPicture
           controls={false}
           controlsList="nodownload nofullscreen noplaybackrate"
-          poster="/images/videoPreview.png"
+          poster="/videos/videoPreview.png"
           className={styles.video}
         >
           <source src="/videos/video.webm" type="video/webm" />
