@@ -1,13 +1,23 @@
-import Link from "next/link";
+"use client";
 import styles from "./header.module.scss";
 import { Logo } from "../ui/Logo/Logo";
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { MobileNavMenu } from "./MobileNavMenu";
+import Link from "next/link";
 import { LinkButton } from "../ui/LinkButton/LinkButton";
 
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header className={styles.header}>
       <Logo />
-      <nav className={styles.navigation}>
+      <nav className={styles.navigationDesktop}>
         <ul className={styles.navList}>
           <li className={styles.navListItem}>
             <Link href="/">About Us</Link>
@@ -27,7 +37,22 @@ export const Header = () => {
         </ul>
       </nav>
 
-      <LinkButton href="/menu" text="Order Online" variant="black" />
+      <div className={styles.navigationDesktop}>
+        <LinkButton href="/menu" text="Order Online" variant="black" />
+      </div>
+
+      <button
+        className={`${styles.burgerButton} ${isOpen ? styles.open : ""}`}
+        onClick={handleOpen}
+      >
+        <span className={styles.burgerButtonIcon} />
+        <span className={styles.burgerButtonIcon} />
+        <span className={styles.burgerButtonIcon} />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && <MobileNavMenu key="mobile-nav" />}
+      </AnimatePresence>
     </header>
   );
 };

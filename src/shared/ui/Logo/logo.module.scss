@@ -1,5 +1,24 @@
-.logoContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.logo {
+  position: relative;
+  width: 112px;
+  height: 37px;
+  z-index: 999999;
+}
+
+.logoImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  //577
+
+  .logo {
+    width: 94px;
+    height: 31px;
+  }
 }
