@@ -1,0 +1,28 @@
+.orderOnlineButton {
+  padding: 8px 30px;
+  border-radius: 50px;
+  font-family: "EBGaramond", sans-serif;
+  line-height: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  color: #f7eee3;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.blackButton {
+  background-color: #000000;
+  color: #f7eee3;
+  &:hover {
+    background-color: #2b2c2c;
+  }
+}
+
+.whiteButton {
+  background-color: #ffffff;
+  color: #2b2c2c;
+  &:hover {
+    background-color: #f7eee3;
+  }
+}

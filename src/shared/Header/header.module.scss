@@ -1,0 +1,27 @@
+.header {
+  padding-top: 21px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.navListItem {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  color: #2b2c2c;
+  font-family: "EBGaramond", sans-serif;
+  font-style: normal;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #004cc9;
+  }
+}

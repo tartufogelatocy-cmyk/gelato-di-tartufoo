@@ -1,4 +1,4 @@
-import { WelcomeScreen } from "@/features/WelcomeScreen/WelcomeScreen";
+import { RoulettePage } from "@/features/RoulettePage/RoulettePage";
 import { OrganizationStructuredData } from "@/seo/OrganizationStructuredData";
 import { Metadata } from "next";
 
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function Roulette() {
   return (
     <>
-      <WelcomeScreen />
+      <RoulettePage />
       <OrganizationStructuredData />
     </>
   );
