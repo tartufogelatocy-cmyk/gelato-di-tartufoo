@@ -13,7 +13,6 @@ export const ForPartnersItem = ({
   return (
     <div className={styles.forPartnersItem}>
       <div className={styles.imageContainer}>
-        {/* size и color можно задавать через пропсы */}
         <GelatoIcon color="#F7EEE3" />
       </div>
 

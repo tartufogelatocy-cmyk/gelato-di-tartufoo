@@ -1,24 +1,14 @@
 import { SVGProps } from "react";
 
 export interface GelatoIconProps extends SVGProps<SVGSVGElement> {
-  /** Icon size in px, applied to both width and height. If not provided, icon will take size from CSS. */
   size?: number | string;
-  /** Fill color */
   color?: string;
-  className?: string;
 }
 
-/**
- * Re-usable gelato bubbles icon.
- *
- * ‑ `size` — задаёт и ширину, и высоту. Если не передано, размеры можно контролировать из CSS (например, через media-query).
- * ‑ `color` — цвет через `currentColor`.
- */
 export const GelatoIcon = ({
   size,
   color,
   style,
-  className,
   ...props
 }: GelatoIconProps) => {
   const dimensionStyle = size ? { width: size, height: size } : {};
