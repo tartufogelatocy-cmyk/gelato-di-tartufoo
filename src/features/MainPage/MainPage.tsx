@@ -1,6 +1,7 @@
 import { Header } from "@/shared/Header/Header";
 import { Welcome } from "./sections/Welcome";
 import { AboutUs } from "./sections/AboutUs";
+import { OurChef } from "./sections/OurChef";
 
 export const MainPage = () => {
   return (
@@ -8,6 +9,7 @@ export const MainPage = () => {
       <Header />
       <Welcome />
       <AboutUs />
+      <OurChef />
     </div>
   );
 };
