@@ -28,9 +28,8 @@ export const OurChef = () => {
         </p>
 
         <p className={styles.meritLeft}>
-          Founder of Delizia Barcelona, Massimo is recognized
-          among TripAdvisor’s #1 gelato in Spain and Los 100 Mejores de la
-          Gastronomía Española.
+          Founder of DelaCrem, Massimo is recognized among TripAdvisor’s #1
+          gelato in Spain and Los 100 Mejores de la Gastronomía Española.
         </p>
 
         <p className={styles.meritRight}>

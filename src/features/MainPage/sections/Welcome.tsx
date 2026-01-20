@@ -30,7 +30,7 @@ export const Welcome = () => {
             <span className={styles.highlight}>Compromise</span>
           </h1>
           <p className={styles.description}>
-            Made with natural ingredients, guided by seasonality,and created to
+            Made with natural ingredients, guided by seasonality, and created to
             express pure, authentic flavor.
           </p>
           <div className={styles.bracerIcon}>

@@ -15,7 +15,7 @@ export async function OrganizationStructuredData() {
     url: baseUrl,
     logo: {
       "@type": "ImageObject",
-      url: `${baseUrl}/favcions/apple-touch-icon.png`,
+      url: `${baseUrl}/favicons/apple-touch-icon.png`,
       width: 120,
       height: 120,
     },
