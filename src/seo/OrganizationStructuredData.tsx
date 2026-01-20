@@ -11,7 +11,7 @@ export async function OrganizationStructuredData() {
     "@type": "IceCreamShop",
     name: "Gelato di Tartufo",
     description:
-      "Gelato di Tartufo is a Limassol gelateria serving hand-crafted Italian ice-cream. Spin our movie roulette, grab a scoop, and enjoy the coziest night.",
+      "Hand-crafted Italian gelato made fresh daily in Limassol. Classic and seasonal flavours, coffee and desserts — taste la dolce vita at Gelato di Tartufo.",
     url: baseUrl,
     logo: {
       "@type": "ImageObject",
@@ -24,10 +24,15 @@ export async function OrganizationStructuredData() {
       "@type": "ContactPoint",
       contactType: "customer service",
       telephone: "+35794334440",
+      email: "tartufo.gelato.cy@gmail.com",
       availableLanguage: ["English"],
     },
-    sameAs: ["https://www.instagram.com/tartufo_gelato/"],
-    foundingDate: "2024",
+    sameAs: [
+      "https://www.instagram.com/tartufo_gelato?igsh=MXV1OHpydDRxeXd3ZQ==",
+      "https://www.facebook.com/share/1AY9TLBWtb/?mibextid=wwXIfr",
+      "https://maps.app.goo.gl/h11Wo5BmNNyoMnCk8?g_st=ic",
+    ],
+    foundingDate: "2025",
     numberOfEmployees: "1-25",
     industry: "Food & Beverage",
     serviceArea: {

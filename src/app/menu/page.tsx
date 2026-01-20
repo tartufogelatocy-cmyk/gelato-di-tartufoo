@@ -5,17 +5,16 @@ import { Metadata } from "next";
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = "https://tartufo-gelato.com";
 
-  const title =
-    "Gelato di Tartufo – Movie Night Roulette & Gelateria in Limassol";
+  const title = "Menu | Gelato di Tartufo";
   const description =
-    "Spin the movie roulette, grab your Gelato di Tartufo, and enjoy the coziest night in Limassol. Hand-crafted Italian gelato meets curated film recommendations for a perfect evening.";
+    "Hand-crafted Italian gelato made fresh daily in Limassol. Classic and seasonal flavours, coffee and desserts — taste la dolce vita at Gelato di Tartufo.";
   const imageUrl = `${baseUrl}/preview.png`;
 
   return {
     title,
     description,
     keywords:
-      "Gelato di Tartufo, gelato Limassol, Italian ice-cream Cyprus, movie roulette, dessert and movie night",
+      "Gelato di Tartufo, gelato Limassol, Italian ice-cream Cyprus, artisanal gelato, dessert, coffee",
     openGraph: {
       title,
       description,
