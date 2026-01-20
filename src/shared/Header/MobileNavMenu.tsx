@@ -96,7 +96,12 @@ export const MobileNavMenu = ({ onClose }: Props) => {
         </motion.ul>
       </motion.nav>
 
-      <LinkButton href="/menu" text="Order Online" variant="black" />
+      <LinkButton
+        href="https://wolt.com/el/cyp/limassol/restaurant/tartufo-gelato"
+        target="_blank"
+        text="Order Online"
+        variant="black"
+      />
     </motion.div>,
     document.getElementById("modal-root") as HTMLElement
   );
