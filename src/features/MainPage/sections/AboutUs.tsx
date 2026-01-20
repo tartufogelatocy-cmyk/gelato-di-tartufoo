@@ -7,12 +7,17 @@ import Image from "next/image";
 
 export const AboutUs = () => {
   return (
-    <section className={styles.aboutUs}>
+    <section id="about-us" className={styles.aboutUs}>
       <SectionTitle text="About Us" />
 
       <div className={styles.content}>
         <div className={styles.imageContainer1}>
-          <Image src={IceCream} alt="About Us" fill objectFit="cover" />
+          <Image
+            src={IceCream}
+            alt="About Us"
+            fill
+            style={{ objectFit: "cover" }}
+          />
         </div>
 
         <div className={styles.contentItems}>
@@ -46,7 +51,7 @@ export const AboutUs = () => {
             src={Lemon}
             alt="About Us"
             fill
-            objectFit="cover"
+            style={{ objectFit: "cover" }}
             className={styles.image2}
           />
         </div>

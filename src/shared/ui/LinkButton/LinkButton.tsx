@@ -6,16 +6,22 @@ interface LinkButtonProps {
   href: string;
   text: string;
   variant: "black" | "white";
+  target?: string;
 }
 
-export const LinkButton = ({ href, text, variant }: LinkButtonProps) => {
+export const LinkButton = ({
+  href,
+  text,
+  variant,
+  target,
+}: LinkButtonProps) => {
   const buttonClassName = clsx(styles.orderOnlineButton, {
     [styles.blackButton]: variant === "black",
     [styles.whiteButton]: variant === "white",
   });
 
   return (
-    <Link href={href} className={buttonClassName}>
+    <Link href={href} target={target} className={buttonClassName}>
       {text}
     </Link>
   );

@@ -4,7 +4,7 @@ import Chef from "@/features/MainPage/assets/images/chef.jpg";
 import Image from "next/image";
 export const OurChef = () => {
   return (
-    <section className={styles.ourChef}>
+    <section id="chef" className={styles.ourChef}>
       <SectionTitle text="Our Chef" />
 
       <h3 className={styles.chefName}>Massimo Pignata</h3>

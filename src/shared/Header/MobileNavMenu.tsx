@@ -1,8 +1,10 @@
 "use client";
 import { LinkButton } from "../ui/LinkButton/LinkButton";
+import type { MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./header.module.scss";
 
 const parentVariants = {
@@ -21,7 +23,20 @@ const itemVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
-export const MobileNavMenu = () => {
+interface Props {
+  onClose: () => void;
+}
+
+export const MobileNavMenu = ({ onClose }: Props) => {
+  const router = useRouter();
+
+  const handleNavigate = (e: MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    onClose();
+    setTimeout(() => {
+      router.push(href);
+    }, 350);
+  };
   return createPortal(
     <motion.div
       className={styles.mobileNavMenu}
@@ -45,19 +60,38 @@ export const MobileNavMenu = () => {
       >
         <motion.ul className={styles.navList}>
           <motion.li variants={itemVariants} className={styles.navListItem}>
-            <Link href="/">About Us</Link>
+            <Link
+              href="/#about-us"
+              onClick={(e) => handleNavigate(e, "/#about-us")}
+            >
+              About Us
+            </Link>
           </motion.li>
           <motion.li variants={itemVariants} className={styles.navListItem}>
-            <Link href="/menu">The Chef</Link>
+            <Link href="/#chef" onClick={(e) => handleNavigate(e, "/#chef")}>
+              The Chef
+            </Link>
           </motion.li>
           <motion.li variants={itemVariants} className={styles.navListItem}>
-            <Link href="/menu">Menu</Link>
+            <Link href="/menu" onClick={(e) => handleNavigate(e, "/menu")}>
+              Menu
+            </Link>
           </motion.li>
           <motion.li variants={itemVariants} className={styles.navListItem}>
-            <Link href="/menu">For Partners</Link>
+            <Link
+              href="/#partners"
+              onClick={(e) => handleNavigate(e, "/#partners")}
+            >
+              For Partners
+            </Link>
           </motion.li>
           <motion.li variants={itemVariants} className={styles.navListItem}>
-            <Link href="/menu">Contact</Link>
+            <Link
+              href="/#contact"
+              onClick={(e) => handleNavigate(e, "/#contact")}
+            >
+              Contact
+            </Link>
           </motion.li>
         </motion.ul>
       </motion.nav>

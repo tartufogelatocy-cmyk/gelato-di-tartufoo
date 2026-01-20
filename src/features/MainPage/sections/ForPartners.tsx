@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export const ForPartners = () => {
   return (
-    <section>
+    <section id="partners">
       <div className={styles.forPartners}>
         <SectionTitle
           text="For Partners"
@@ -31,7 +31,11 @@ export const ForPartners = () => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <LinkButton href="/" text="Contact us" variant="white" />
+          <LinkButton
+            href="tel:+35794334440"
+            text="Contact us"
+            variant="white"
+          />
         </div>
       </div>
 

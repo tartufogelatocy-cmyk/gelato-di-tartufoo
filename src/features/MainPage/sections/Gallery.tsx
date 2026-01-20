@@ -25,14 +25,19 @@ export const Gallery = () => {
   const progress = Math.min(((active + visibleCount) / total) * 100, 100);
 
   return (
-    <section className={styles.gallery}>
+    <section id="gallery" className={styles.gallery}>
       <SectionTitle text="Gallery" />
 
       {/* Desktop grid */}
       <div className={styles.galleryItemsDesktop}>
         {GALLERY_ITEMS.map((item) => (
           <div className={styles.galleryItem} key={item.alt}>
-            <Image src={item.src} alt={item.alt} fill objectFit="cover" />
+            <Image
+              src={item.src}
+              alt={item.alt}
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </div>
         ))}
       </div>
@@ -55,7 +60,12 @@ export const Gallery = () => {
           {GALLERY_ITEMS.map((item) => (
             <SwiperSlide key={item.alt}>
               <div className={styles.galleryItem}>
-                <Image src={item.src} alt={item.alt} fill objectFit="cover" />
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
               </div>
             </SwiperSlide>
           ))}
