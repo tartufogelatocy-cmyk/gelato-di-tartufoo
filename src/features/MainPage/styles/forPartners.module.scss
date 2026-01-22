@@ -18,6 +18,16 @@
   position: relative;
   width: 52px;
   height: 52px;
+  margin-bottom: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  // width: 100%;
+  margin-bottom: auto;
 }
 
 .forPartnersItem {
@@ -51,7 +61,7 @@
 }
 
 .buttonContainer {
-  margin-top: 40px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
 }
@@ -67,6 +77,22 @@
 .recImage {
   object-position: top;
   object-fit: cover;
+}
+
+.contactInfo {
+  margin: 0 auto;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contactInfoText {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 100%;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  text-align: center;
+  color: #f7eee3;
 }
 
 @media (max-width: 1200px) {
@@ -130,4 +156,8 @@
     width: 100vw;
     height: 173px;
   }
+
+  .contactInfoText {
+  font-size: 18px;
+}
 }

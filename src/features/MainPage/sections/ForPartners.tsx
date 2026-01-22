@@ -17,22 +17,29 @@ export const ForPartners = () => {
 
         <div className={styles.forPartnersItems}>
           <ForPartnersItem
-            title="Tailored Gelato Solutions"
-            description="For us, gelato is a ritual. A moment of pleasure, emotion, and connection — created to be savored, remembered, and returned to again and again."
+            title="Tailored Dessert Solutions"
+            description="We provide a complete dessert solution for HoReCa — restaurants, hotels, beach clubs, and events.
+Italian gelato and desserts from our own production, designed for easy integration, stable service, and consistent results."
           />
           <ForPartnersItem
-            title="Consistent Quality at Scale"
-            description="From small batches to large volumes, we ensure stable texture, flavor, and performance — crafted daily using the same uncompromising standards."
+            title="Quality & Expertise"
+            description="Our gelato is developed and controlled by an Italian brand chef using professional Italian equipment and ingredients.
+We ensure consistency in taste, texture, and presentation, adapted specifically for HoReCa formats."
           />
           <ForPartnersItem
             title="End-to-End Partnership"
-            description="Beyond production, we provide technical guidance, menu consulting, and ongoing support — building long-term collaborations, not just supply chains."
+            description="We work as a long-term partner, not just a supplier.
+From product selection and menu integration to technical guidance and ongoing support, we help our partners operate efficiently and grow sustainably."
           />
+        </div>
+
+        <div className={styles.contactInfo}>
+          <p className={styles.contactInfoText}>For more information, please contact us.</p>
         </div>
 
         <div className={styles.buttonContainer}>
           <LinkButton
-            href="tel:+35794334440"
+            href="mailto:tartufo.gelato.cy@gmail.com"
             text="Contact us"
             variant="white"
           />

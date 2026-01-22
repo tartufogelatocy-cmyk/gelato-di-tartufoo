@@ -12,11 +12,15 @@ export const ForPartnersItem = ({
 }: ForPartnersItemProps) => {
   return (
     <div className={styles.forPartnersItem}>
-      <div className={styles.imageContainer}>
-        <GelatoIcon color="#F7EEE3" />
-      </div>
 
-      <h3 className={styles.title}>{title}</h3>
+      <div className={styles.wrapper}>
+        <div className={styles.imageContainer}>
+          <GelatoIcon color="#F7EEE3" />
+        </div>
+
+        <h3 className={styles.title}>{title}</h3>
+      </div>
+   
       <p className={styles.description}>{description}</p>
     </div>
   );
